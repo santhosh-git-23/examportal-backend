@@ -1,30 +1,29 @@
 pipeline {
-  agent any
-  tools {
-    maven 'maven' 
-  }
-  triggers {
-    pollSCM '* * * * *'
-  }
-  stages {
-    stage ('Build') {
-      steps {
-        sh 'mvn clean package'
-      }
+    agent any
+    tools {
+        maven 'maven'
     }
-    stage('Transfer JAR to EC2') {
+    triggers {
+        pollSCM '* * * * *'
+    }
+    stages {
+        stage('Build') {
             steps {
-                // Transfer the JAR file to the EC2 instance
+                sh 'mvn clean package'
+            }
+        }
+        stage('Transfer JAR to EC2') {
+            steps {
                 script {
                     def remoteDir = '/home/ubuntu/project/'  // Directory path on EC2 instance
-                    def privateKey = credentials 'project'  // Jenkins credential for private key
+                    def privateKey = credentials('project')  // Jenkins credential for private key
 
-                    sshagent(['project']) {
+                    sshagent(credentials: [privateKey]) {
                         // Copy the JAR file to the remote directory
                         sh "scp -i ${privateKey} target/*.jar ubuntu@16.171.117.156:${remoteDir}"
                     }
                 }
             }
         }
-  }
+    }
 }
