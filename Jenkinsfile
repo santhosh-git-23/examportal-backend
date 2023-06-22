@@ -17,11 +17,11 @@ pipeline {
                 // Transfer the JAR file to the EC2 instance
                 script {
                     def remoteDir = '/home/ubuntu/project'  // Directory path on EC2 instance
-                    def privateKey = credentials('your-ssh-key-id')  // Jenkins credential for private key
+                    def privateKey = credentials('project')  // Jenkins credential for private key
 
-                    sshagent(['your-ssh-key-id']) {
+                    sshagent(['project']) {
                         // Copy the JAR file to the remote directory
-                        sh "scp -i ${privateKey} target/your-project.jar ec2-user@<your-ec2-instance-ip>:${remoteDir}"
+                        sh "scp -i ${privateKey} target/*.jar ubuntu@16.171.117.156:${remoteDir}"
                     }
                 }
             }
