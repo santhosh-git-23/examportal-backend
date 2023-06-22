@@ -18,7 +18,7 @@ pipeline {
                     def remoteDir = '/home/ubuntu/project/'  // Directory path on EC2 instance
                     def privateKey = credentials('project')  // Jenkins credential for private key
 
-                    sshagent(credentials: [privateKey]) {
+                    sshagent(credentials: 'project') {
                         // Copy the JAR file to the remote directory
                         sh "scp -i ${privateKey} target/*.jar ubuntu@16.171.117.156:${remoteDir}"
                     }
