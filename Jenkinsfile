@@ -16,7 +16,7 @@ pipeline {
             steps {
                 // Transfer the JAR file to the EC2 instance
                 script {
-                    def remoteDir = '/home/ubuntu/project'  // Directory path on EC2 instance
+                    def remoteDir = '/home/ubuntu/project/'  // Directory path on EC2 instance
                     def privateKey = credentials('project')  // Jenkins credential for private key
 
                     sshagent(['project']) {
