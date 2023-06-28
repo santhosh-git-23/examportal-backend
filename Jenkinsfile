@@ -46,7 +46,7 @@ pipeline {
             steps {
                 // Copy the JAR file to the EC2 instance
                 withAWS(region: 'eu-north-1', credentials: 'aws-credentials') {
-                    sh 'scp -i Downloads/jenkins-key.pem target/*.jar ubuntu@16.170.55.198:/home/ubuntu/project/'
+                    sh 'scp -i Downloads/project-key.pem target/*.jar ubuntu@16.170.55.198:/home/ubuntu/project/'
                 }
             }
         }
