@@ -67,12 +67,12 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        stage('Transfer to EC2') {
-            steps {
-                // Transfer the JAR file to EC2 instance
-                sh 'scp target/*.jar ubuntu@16.170.55.198:/home/ubuntu/project/'
-            }
-        }
+        // stage('Transfer to EC2') {
+        //     steps {
+        //         // Transfer the JAR file to EC2 instance
+        //         sh 'scp target/*.jar ubuntu@16.170.55.198:/home/ubuntu/project/'
+        //     }
+        // }
     }
 }
 
