@@ -81,8 +81,8 @@ pipeline {
         stage("Running jar file"){
             steps{
                 // sh 'systemctl start examportal'
-                sh 'cd /home/ubuntu/project'
-                sh 'java -jar examportal-0.0.1-SNAPSHOT.jar'
+                // sh 'cd /home/ubuntu/project'
+                sh 'java -jar /home/ubuntu/project/examportal-0.0.1-SNAPSHOT.jar'
             }
         }
     }
