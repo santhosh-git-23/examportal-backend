@@ -75,7 +75,7 @@ pipeline {
         // }
         stage("Jar file transfer"){
             steps{
-                sh 'mv /var/lib/jenkins/workspace/cicd/target/examportal-0.0.1-SNAPSHOT.jar /home/ubuntu/project/'
+                sh 'sudo mv /var/lib/jenkins/workspace/cicd/target/examportal-0.0.1-SNAPSHOT.jar /home/ubuntu/project/'
             }
         }
     }
