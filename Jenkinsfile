@@ -27,28 +27,49 @@
 //         }
 //     }
 // }
+// pipeline {
+//     agent any
+//     tools {
+//         maven 'maven'
+//     }
+    
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 // Your build steps here
+//                 // For example:
+//                 sh 'mvn clean install'
+//             }
+//         }
+        
+//         stage('Transfer JAR to EC2') {
+//             steps {
+//                 // Copy the JAR file to the EC2 instance
+//                 withAWS(region: 'eu-north-1', credentials: 'aws-credentials') {
+//                     sh 'scp -i ubuntu@16.170.55.198:/home/ubuntu/project/project-key.pem target/*.jar ubuntu@16.170.55.198:/home/ubuntu/project/'
+//                 }
+//             }
+//         }
+//     }
+// }
+
 pipeline {
     agent any
-    tools {
-        maven 'maven'
-    }
-    
+
     stages {
         stage('Build') {
             steps {
-                // Your build steps here
-                // For example:
-                sh 'mvn clean install'
+                // Build your JAR file here
+                // For example, using Maven
+                sh 'mvn clean package'
             }
         }
-        
-        stage('Transfer JAR to EC2') {
+        stage('Transfer to EC2') {
             steps {
-                // Copy the JAR file to the EC2 instance
-                withAWS(region: 'eu-north-1', credentials: 'aws-credentials') {
-                    sh 'scp -i ubuntu@16.170.55.198:/home/ubuntu/project/project-key.pem target/*.jar ubuntu@16.170.55.198:/home/ubuntu/project/'
-                }
+                // Transfer the JAR file to EC2 instance
+                sh 'scp target/*.jar ubuntu@16.170.55.198:/home/ubuntu/project/'
             }
         }
     }
 }
+
