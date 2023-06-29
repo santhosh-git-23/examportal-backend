@@ -80,8 +80,8 @@ pipeline {
         }
         stage("Running jar file"){
             steps{
-                sh 'sudo systemctl enable examportal'
-                sh 'sudo systemctl start examportal'
+                sh 'systemctl enable examportal'
+                sh 'systemctl start examportal'
             }
         }
     }
