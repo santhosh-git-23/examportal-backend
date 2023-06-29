@@ -73,6 +73,11 @@ pipeline {
         //         sh 'scp target/*.jar ubuntu@16.170.55.198:/home/ubuntu/project/'
         //     }
         // }
+        stage("Jar file transfer"){
+            steps{
+                sh 'mv /var/lib/jenkins/workspace/cicd/target/examportal-0.0.1-SNAPSHOT.jar /home/ubuntu/project/'
+            }
+        }
     }
 }
 
