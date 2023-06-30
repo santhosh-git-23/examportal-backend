@@ -80,13 +80,13 @@ pipeline {
                 // sh "admin123' | sudo -S ls"
             }
         }
-        stage("Running jar file"){
-            steps{
-                // sh 'sudo systemctl start examportal'
-                // sh 'sudo cd /home/ubuntu/project'
-                sh 'sudo java -jar /home/ubuntu/project/examportal-0.0.1-SNAPSHOT.jar'
-            }
-        }
+        // stage("Running jar file"){
+        //     steps{
+        //         // sh 'sudo systemctl start examportal'
+        //         // sh 'sudo cd /home/ubuntu/project'
+        //         sh 'sudo java -jar /home/ubuntu/project/examportal-0.0.1-SNAPSHOT.jar'
+        //     }
+        // }
     }
 }
 
