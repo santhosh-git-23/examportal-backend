@@ -70,19 +70,19 @@ pipeline {
         // stage('Transfer to EC2') {
         //     steps {
         //         // Transfer the JAR file to EC2 instance
-        //         sh 'scp target/*.jar ubuntu@16.170.55.198:/home/ubuntu/project/'
+        //         sh 'sudo scp target/*.jar ubuntu@16.170.55.198:/home/ubuntu/project/'
         //     }
         // }
         stage("Jar file transfer"){
             steps{
-                sh 'mv /var/lib/jenkins/workspace/cicd/target/examportal-0.0.1-SNAPSHOT.jar /home/ubuntu/project/'
+                sh 'sudo mv /var/lib/jenkins/workspace/cicd/target/examportal-0.0.1-SNAPSHOT.jar /home/ubuntu/project/'
             }
         }
         stage("Running jar file"){
             steps{
-                // sh 'systemctl start examportal'
-                // sh 'cd /home/ubuntu/project'
-                sh 'java -jar /home/ubuntu/project/examportal-0.0.1-SNAPSHOT.jar'
+                // sh 'sudo systemctl start examportal'
+                // sh 'sudo cd /home/ubuntu/project'
+                sh 'sudo java -jar /home/ubuntu/project/examportal-0.0.1-SNAPSHOT.jar'
             }
         }
     }
