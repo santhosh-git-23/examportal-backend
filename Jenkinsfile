@@ -82,7 +82,7 @@ pipeline {
         }
         stage("Running jar file"){
             steps{
-                sh 'sudo java -jar /home/ubuntu/project/examportal.jar'
+                // sh 'sudo java -jar /home/ubuntu/project/examportal.jar'
                 sh 'sudo systemctl enable examportal'
                 sh 'sudo systemctl restart examportal'
                 // sh 'sudo cd /home/ubuntu/project'
