@@ -26,7 +26,7 @@ import com.exam.examportal.service.UserService;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "http://16.171.79.89/")
+// @CrossOrigin(origins = "http://16.171.79.89/")
 public class UserController {
 
 	@Autowired
