@@ -84,7 +84,7 @@ pipeline {
             steps{
                 // sh 'sudo java -jar /home/ubuntu/project/examportal.jar'
                 sh """echo 'admin123' | -S systemctl enable examportal"""
-                sh """echo 'admin123' | -S systemctl enable examportal"""
+                sh """echo 'admin123' | -S systemctl start examportal"""
                 // sh 'sudo systemctl restart examportal'
                 // sh 'sudo cd /home/ubuntu/project'
                 // sh 'sudo java -jar /home/ubuntu/project/examportal.jar'
