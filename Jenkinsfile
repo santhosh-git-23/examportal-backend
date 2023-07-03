@@ -58,6 +58,9 @@ pipeline {
     tools {
         maven 'maven'
     }
+    triggers {
+        pollSCM '* * * * *'
+    }
 
     stages {
         stage('Build') {
