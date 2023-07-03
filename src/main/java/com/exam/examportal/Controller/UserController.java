@@ -38,7 +38,7 @@ public class UserController {
 	
 	@GetMapping("/test")
     public String test() {
-        return "Welcome  to Backend api of examportal";
+        return "Welcome to the Backend api of examportal";
     }
 	
 	@PostMapping("/")
